@@ -15,3 +15,20 @@ function connectToServer() {
     return false;
   }
 }
+
+function switchView(navId, viewId) {
+  var viewContainerList = document.getElementsByClassName("container");
+  for(var i = 0; i < viewContainerList.length; i++){
+      viewContainerList[i].style.visibility = "hidden";
+  }
+
+  var navLinks = document.getElementsByClassName("nav-link");
+  for(var j = 0; j < navLinks.length; j++) {
+    navLinks[j].classList.remove("active");
+  }
+
+  var viewContainer = document.getElementById(viewId);
+  viewContainer.style.visibility = "visible";
+  var navElement = document.getElementById(navId);
+  navElement.classList.add("active");
+}

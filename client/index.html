@@ -19,8 +19,8 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li><a class="nav-link active" href="#"><i class="fas fa-user"></i>&nbsp;Character</a></li>
-      <li><a class="nav-link" href="#"><i class="fas fa-users"></i>&nbsp;Party</a></li>
+      <li><a class="nav-link active" id="characterNav" href="#" onclick="switchView(this.id, 'characterView')"><i class="fas fa-user"></i>&nbsp;Character</a></li>
+      <li><a class="nav-link" id="partyNav" href="#" onclick="switchView(this.id, 'partyView')"><i class="fas fa-users"></i>&nbsp;Party</a></li>
     </ul>
   </div>
 </nav>
@@ -28,7 +28,7 @@
 <br> <br> <br>
 
 <!-- character container -->
-<div class="container">
+<div class="container" id="characterView">
   <!-- name, level and exp -->
   <div class="row text-center text-light bg-dark">
     <h5 class="col">Character Name</h5>
@@ -190,9 +190,14 @@
   </div>
 </div>
 
+<div class="container" id="partyView" style="visibility: hidden">
+PartyView
+</div>
+
 <script src="js/bootstrap.min.js"></script>
 <script>
   const server = connectToServer();
+  var currentContext = "characterView";
 </script>
 </body>
 </html>
