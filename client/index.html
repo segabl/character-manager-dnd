@@ -21,6 +21,7 @@
     <ul class="navbar-nav mr-auto">
       <li><a class="nav-link active" id="characterNav" href="#" onclick="switchView(this.id, 'characterView')"><i class="fas fa-user"></i>&nbsp;Character</a></li>
       <li><a class="nav-link" id="partyNav" href="#" onclick="switchView(this.id, 'partyView')"><i class="fas fa-users"></i>&nbsp;Party</a></li>
+      <li><a class="nav-link" id="tableNav" href="#" onclick="switchView(this.id, 'tableView')"><i class="fas fa-rocket"></i>&nbsp;Table</a></li>
     </ul>
   </div>
 </nav>
@@ -165,8 +166,13 @@
   </div>
 </div>
 
-<div class="container" id="partyView" style="visibility: hidden">
+<div class="container" id="partyView" style="display: none">
 PartyView
+</div>
+
+<div class="container" id="tableView" style="display: none">
+    <div class="gameTable" id="table" style="width:350px;height:100px;border: 5px solid white" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="img/placeholder.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
 </div>
 
 <script src="js/bootstrap.min.js"></script>

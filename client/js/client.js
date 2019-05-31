@@ -55,7 +55,7 @@ function updateCharacter(data) {
 function switchView(navId, viewId) {
   const viewContainerList = document.getElementsByClassName("container");
   for(let i = 0; i < viewContainerList.length; i++){
-      viewContainerList[i].style.visibility = "hidden";
+      viewContainerList[i].style.display = "none";
   }
 
   const navLinks = document.getElementsByClassName("nav-link");
@@ -64,7 +64,21 @@ function switchView(navId, viewId) {
   }
 
   const viewContainer = document.getElementById(viewId);
-  viewContainer.style.visibility = "visible";
+  viewContainer.style.display = "block";
   const navElement = document.getElementById(navId);
   navElement.classList.add("active");
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }
