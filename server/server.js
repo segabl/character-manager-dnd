@@ -1,5 +1,8 @@
 const WebSocketServer = require("websocket").server;
 const http = require("http");
+const fs = require("fs");
+
+const character_template = JSON.parse(fs.readFileSync("characters/template.json"));
 
 const server = http.createServer(function (request, response) {
   console.log("Received request for " + request.url);
@@ -28,7 +31,11 @@ wsServer.on("request", function (request) {
   }
 
   const connection = request.accept("echo-protocol", request.origin);
-  connection.sendUTF("Hello World!");
+  const msg_data = {
+    id: "character",
+    payload: character_template
+  }
+  connection.sendUTF(JSON.stringify(msg_data));
 
   console.log("Connection from origin " + request.origin + " accepted.");
   connection.on("message", function (message) {

@@ -1,0 +1,116 @@
+{
+  "name": "New Character",
+  "class": "Warrior",
+  "level": 1,
+  "hp": 10,
+  "max_hp": 10,
+  "exp": 0,
+  "stats": {
+    "armor_class": 10,
+    "speed": 10,
+    "passive_perception": 10,
+    "initiative": 2,
+    "proficiency_bonus": 2,
+    "hit_dice": 1
+  },
+  "skills": {
+    "acrobatics": {
+      "proficient": true,
+      "value": 0
+    },
+    "animal_handling": {
+      "proficient": false,
+      "value": 0
+    },
+    "arcana": {
+      "proficient": true,
+      "value": 0
+    },
+    "athletics": {
+      "proficient": false,
+      "value": 0
+    },
+    "deception": {
+      "proficient": true,
+      "value": 0
+    },
+    "history": {
+      "proficient": false,
+      "value": 0
+    },
+    "insight": {
+      "proficient": false,
+      "value": 0
+    },
+    "intimidation": {
+      "proficient": false,
+      "value": 0
+    },
+    "investigation": {
+      "proficient": false,
+      "value": 0
+    },
+    "medicine": {
+      "proficient": false,
+      "value": 0
+    },
+    "nature": {
+      "proficient": false,
+      "value": 0
+    },
+    "perception": {
+      "proficient": false,
+      "value": 0
+    },
+    "performance": {
+      "proficient": false,
+      "value": 0
+    },
+    "persuasion": {
+      "proficient": false,
+      "value": 0
+    },
+    "religion": {
+      "proficient": false,
+      "value": 0
+    },
+    "sleight_of_hand": {
+      "proficient": false,
+      "value": 0
+    },
+    "stealth": {
+      "proficient": false,
+      "value": 0
+    },
+    "survival": {
+      "proficient": false,
+      "value": 0
+    }
+  },
+  "modifiers": {
+    "strength": {
+      "proficient": true,
+      "value": 0
+    },
+    "dexterity": {
+      "proficient": false,
+      "value": 0
+    },
+    "constitution": {
+      "proficient": false,
+      "value": 0
+    },
+    "intelligence": {
+      "proficient": true,
+      "value": 0
+    },
+    "wisdom": {
+      "proficient": false,
+      "value": 0
+    },
+    "charisma": {
+      "proficient": false,
+      "value": 0
+    }
+  }
+}
