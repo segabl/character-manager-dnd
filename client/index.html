@@ -19,7 +19,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li><a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;Character</a></li>
+            <li><a class="nav-link active" href="#"><i class="fas fa-user"></i>&nbsp;Character</a></li>
             <li><a class="nav-link" href="#"><i class="fas fa-users"></i>&nbsp;Party</a></li>
         </ul>
     </div>
@@ -30,13 +30,19 @@
 <!-- character container -->
 <div class="container">
     <!-- portrait, name, level and exp -->
-    <div class="row my-4">
-        <img class="col-auto" src="img/placeholder.png" alt="Character Portrait" style="max-width:128px">
+    <div class="row">
+        <div class="col" style="max-width: 128px; max-height: 128px;">
+            <img src="img/placeholder.png" alt="Character Portrait" style="height: 100%">
+        </div>
         <div class="col">
             <div class="row text-center">
                 <h4 class="col">Character Name</h4>
             </div>
             <div class="row text-center">
+                <div class="col">
+                    <strong>Warrior</strong>
+                    <p>Class</p>
+                </div>
                 <div class="col">
                     <strong>1</strong>
                     <p>Level</p>
@@ -50,14 +56,13 @@
     </div>
     <hr>
     <!-- stats -->
-    <div class="row my-4 text-center">
+    <div class="row text-center">
+        <h5 class="col">Stats</h5>
+    </div>
+    <div class="row text-center">
         <div class="col">
             <strong>10</strong>
-            <p>Armor&nbsp;Class</p>
-        </div>
-        <div class="col ">
-            <strong>+2</strong>
-            <p>Initiative</p>
+            <p>Armor Class</p>
         </div>
         <div class="col">
             <strong>10</strong>
@@ -65,22 +70,41 @@
         </div>
         <div class="col">
             <strong>10</strong>
-            <p>Passive&nbsp;Perception</p>
+            <p>Passive Perception</p>
+        </div>
+        <div class="col ">
+            <strong>+2</strong>
+            <p>Initiative</p>
         </div>
         <div class="col">
             <strong>+2</strong>
-            <p>Proficiency&nbsp;Bonus</p>
+            <p>Proficiency Bonus</p>
         </div>
         <div class="col">
             <strong>1</strong>
-            <p>Hit&nbsp;Dice</p>
+            <p>Hit Dice</p>
         </div>
     </div>
     <hr>
     <!-- skills -->
+    <div class="row text-center">
+        <h5 class="col">Skills</h5>
+    </div>
+    <hr>
     <!-- ability modifiers -->
+    <div class="row text-center">
+        <h5 class="col">Ability Modifiers</h5>
+    </div>
+    <hr>
     <!-- saving throws -->
+    <div class="row text-center">
+        <h5 class="col">Saving Throw Modifiers</h5>
+    </div>
+    <hr>
     <!-- inventory -->
+    <div class="row text-center">
+        <h5 class="col">Inventory</h5>
+    </div>
 </div>
 
 <script src="js/bootstrap.min.js"></script>
