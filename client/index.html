@@ -16,7 +16,9 @@
 <body class="bg-secondary">
 
 <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li><a class="nav-link active" id="characterNav" href="#" onclick="switchView(this.id, 'characterView')"><i class="fas fa-user"></i>&nbsp;Character</a></li>
@@ -34,7 +36,7 @@
   <div class="row text-center text-light bg-dark">
     <h5 id="name" class="col">Name</h5>
   </div>
-  <div class="row mb-2 text-center text-dark bg-light">
+  <div class="row py-1 mb-2 text-center text-dark bg-light">
     <div class="col-sm-3 col-6">
       <strong id="class">Class</strong><br><small>Class</small>
     </div>
@@ -53,7 +55,7 @@
   <div class="row text-center text-light bg-dark">
     <h5 class="col">Stats</h5>
   </div>
-  <div class="row mb-2 text-center text-dark bg-light">
+  <div class="row py-1 mb-2 text-center text-dark bg-light">
     <div class="col-md-2 col-sm-4 col-6">
       <strong id="stat_armor_class">0</strong><br><small>Armor Class</small>
     </div>
@@ -78,7 +80,7 @@
   <div class="row text-center text-light bg-dark">
     <h5 class="col">Skills</h5>
   </div>
-  <div class="row mb-2 text-center text-dark bg-light">
+  <div class="row py-1 mb-2 text-center text-dark bg-light">
     <div class="col-md-2 col-sm-4 col-6">
       <strong id="skill_acrobatics">0</strong><br><small>Acrobatics</small>
     </div>
@@ -139,7 +141,7 @@
   <div class="row text-center text-light bg-dark">
     <h5 class="col">Ability Modifiers</h5>
   </div>
-  <div class="row mb-2 text-center text-dark bg-light">
+  <div class="row py-1 mb-2 text-center text-dark bg-light">
     <div class="col-md-2 col-sm-4 col-6">
       <strong id="modifier_strength">0</strong><br><small>Strength</small>
     </div>
@@ -164,7 +166,7 @@
   <div class="row text-center text-light bg-dark">
     <h5 class="col">Inventory</h5>
   </div>
-  <div id="inventory" class="row mb-2 text-center text-dark bg-light">
+  <div id="inventory" class="row py-1 mb-2 text-center text-dark bg-light">
 
   </div>
 </div>
@@ -178,8 +180,8 @@ PartyView
     <img id="drag1" src="img/placeholder.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
 </div>
 
-<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script>
   const server = connectToServer();
   var currentContext = "characterView";

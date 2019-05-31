@@ -35,17 +35,16 @@ function updateCharacter(data) {
   jQuery.each(data.stats, function(k, v) {
     $("#stat_" + k).html(v);
   });
-  let proficiency_bonus = data.stats.proficiency_bonus;
   jQuery.each(data.skills, function(k, v) {
     let element = $("#skill_" + k);
-    element.html(v.proficient ? v.value + proficiency_bonus : v.value);
+    element.html(v.proficient ? v.value + data.stats.proficiency_bonus : v.value);
     if (v.proficient) {
       element.addClass("text-success");
     }
   });
   jQuery.each(data.modifiers, function(k, v) {
     let element = $("#modifier_" + k);
-    element.html(v.proficient ? v.value + " (" + (v.value + proficiency_bonus) + ")" : v.value);
+    element.html(v.proficient ? v.value + " (" + (v.value + data.stats.proficiency_bonus) + ")" : v.value);
     if (v.proficient) {
       element.addClass("text-success");
     }
