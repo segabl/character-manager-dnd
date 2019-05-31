@@ -50,6 +50,9 @@ function updateCharacter(data) {
       element.addClass("text-success");
     }
   });
+  jQuery.each(data.inventory, function(k, v) {
+    $("#inventory").append("<div class=\"col\"><strong class=\"text-nowrap\">" + v.name + "</strong>&nbsp;<small>x" + v.count + "</small></div>");
+  })
 }
 
 function switchView(navId, viewId) {

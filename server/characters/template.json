@@ -112,5 +112,13 @@
       "proficient": false,
       "value": 0
     }
-  }
+  },
+  "inventory": [
+    { "name": "Torch", "count": 10 },
+    { "name": "Rope", "count": 100 },
+    { "name": "Arrow", "count": 20 },
+    { "name": "Leather Armor", "count": 1 },
+    { "name": "Leather Shield", "count": 1 },
+    { "name": "Iron Mace", "count": 1 }
+  ]
 }
