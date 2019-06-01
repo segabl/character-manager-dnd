@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
 
   <title>Dungeons & Dragons Character Manager</title>
-
-  <script type="text/javascript" src="js/client.js"></script>
 </head>
 
 <body class="bg-secondary">
@@ -237,8 +235,9 @@
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/client.js"></script>
 <script>
-  const server = connectToServer();
+  connectToServer();
   var currentContext = "characterView";
 </script>
 </body>

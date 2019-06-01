@@ -31,11 +31,10 @@ wsServer.on("request", function (request) {
   }
 
   const connection = request.accept("echo-protocol", request.origin);
-  const msg_data = {
+  connection.sendUTF(JSON.stringify({
     id: "character",
-    payload: character_template
-  }
-  connection.sendUTF(JSON.stringify(msg_data));
+    data: character_template
+  }));
 
   console.log("Connection from origin " + request.origin + " accepted.");
   connection.on("message", function (message) {

@@ -1,3 +1,6 @@
+let characters = [];
+let myCharId = 0;
+
 function connectToServer() {
   if ("WebSocket" in window) {
     const socket = new WebSocket("ws://127.0.0.1:8080", "echo-protocol");
@@ -6,8 +9,8 @@ function connectToServer() {
     };
     socket.onmessage = function (message) {
       console.log("Got message: " + message.data);
-      const msg_data = JSON.parse(message.data);
-      handleMessage(msg_data.id, msg_data.payload);
+      const msg = JSON.parse(message.data);
+      handleMessage(msg.id, msg.data);
     };
     socket.onclose = function () {
       console.log("Socket closed");
@@ -18,15 +21,19 @@ function connectToServer() {
   }
 }
 
-function handleMessage(id, payload) {
-  switch (id) {
+function handleMessage(msgId, msgData) {
+  switch (msgId) {
     case "character":
-      updateCharacter(payload);
+      updateCharacter(msgData);
       break;
   }
 }
 
 function updateCharacter(data) {
+  characters[data.id] = data;
+  if (data.id !== myCharId) {
+    return;
+  }
   $("#name").html(data.name);
   $("#class").html(data.class);
   $("#level").html(data.level);
