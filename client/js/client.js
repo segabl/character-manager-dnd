@@ -177,7 +177,7 @@ function delPlayer(el) {
 
 function createCol() {
   const col = document.createElement("div");
-  col.setAttribute("class", "col");
+  col.setAttribute("class", "col-auto");
   return col;
 }
 
