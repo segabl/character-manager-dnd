@@ -70,3 +70,84 @@ function switchView(navId, viewId) {
   const navElement = document.getElementById(navId);
   navElement.classList.add("active");
 }
+
+function addTopPlayer() {
+  const topRow = document.getElementById("playerTopRow");
+  addPlayerHorizontal(topRow);
+}
+
+function addLeftPlayer() {
+  const leftCol = document.getElementById("playerLeftCol");
+  addPlayerVertical(leftCol);
+}
+
+function addRightPlayer() {
+  const rightCol = document.getElementById("playerRightCol");
+  addPlayerVertical(rightCol);
+}
+
+function addPlayerHorizontal(row) {
+  const playerCol = createCol();
+  row.appendChild(playerCol);
+  addPlayer(playerCol);
+}
+
+function addPlayerVertical(col) {
+  const row = createRow();
+  col.appendChild(row);
+
+  const playerCol = createCol();
+  row.appendChild(playerCol);
+  addPlayer(playerCol);
+}
+
+function addPlayer(playerCol) {
+  const playerNameRow = createRow();
+  playerCol.appendChild(playerNameRow);
+
+  const playerNameCol = createCol();;
+  playerNameCol.innerHTML = "TestName";
+  playerNameRow.appendChild(playerNameCol);
+
+  const statNamesRow = createRow();
+  playerCol.appendChild(statNamesRow);
+
+  const ac = createCol();
+  ac.innerHTML = "AC";
+  statNamesRow.appendChild(ac);
+
+  const hp = createCol();
+  hp.innerHTML = "HP";
+  statNamesRow.appendChild(hp);
+
+  const init = createCol();
+  init.innerHTML = "INIT";
+  statNamesRow.appendChild(init);
+
+  const statsRow = createRow();
+  playerCol.appendChild(statsRow);
+
+  const acValue = createCol();
+  acValue.innerHTML = "0";
+  statsRow.appendChild(acValue);
+
+  const hpValue = createCol();
+  hpValue.innerHTML = "0";
+  statsRow.appendChild(hpValue);
+
+  const initValue = createCol();
+  initValue.innerHTML = "0";
+  statsRow.appendChild(initValue);
+}
+
+function createCol() {
+  const col = document.createElement("div");
+  col.setAttribute("class", "col");
+  return col;
+}
+
+function createRow() {
+  const row = document.createElement("div");
+  row.setAttribute("class", "row py-1 mb-2 text-center text-light");
+  return row;
+}
