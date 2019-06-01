@@ -5,6 +5,13 @@
   "hp": 10,
   "max_hp": 10,
   "exp": 0,
+  "money": {
+    "platinum": 0,
+    "gold": 50,
+    "electrum": 0,
+    "silver": 0,
+    "copper": 0
+  },
   "stats": {
     "armor_class": 10,
     "speed": 10,

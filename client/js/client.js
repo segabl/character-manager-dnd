@@ -49,8 +49,13 @@ function updateCharacter(data) {
       element.addClass("text-success");
     }
   });
+  $("#inventory_pp").html(data.money.platinum);
+  $("#inventory_gp").html(data.money.gold);
+  $("#inventory_ep").html(data.money.electrum);
+  $("#inventory_sp").html(data.money.silver);
+  $("#inventory_cp").html(data.money.copper);
   jQuery.each(data.inventory, function(k, v) {
-    $("#inventory").append("<div class=\"col\"><strong class=\"text-nowrap\">" + v.name + "</strong>&nbsp;<small>x" + v.count + "</small></div>");
+    $("#inventory").append("<div class=\"col-lg-2 col-sm-4 col-6\"><strong class=\"text-nowrap\">" + v.name + "</strong>&nbsp;<small>x" + v.count + "</small></div>");
   })
 }
 
