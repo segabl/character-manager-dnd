@@ -76,14 +76,26 @@ function addTopPlayer() {
   addPlayerHorizontal(topRow);
 }
 
+function delTopPlayer() {
+
+}
+
 function addLeftPlayer() {
   const leftCol = document.getElementById("playerLeftCol");
   addPlayerVertical(leftCol);
 }
 
+function delLeftPlayer() {
+  
+}
+
 function addRightPlayer() {
   const rightCol = document.getElementById("playerRightCol");
   addPlayerVertical(rightCol);
+}
+
+function delRightPlayer() {
+  
 }
 
 function addPlayerHorizontal(row) {
@@ -105,8 +117,9 @@ function addPlayer(playerCol) {
   const playerNameRow = createRow();
   playerCol.appendChild(playerNameRow);
 
-  const playerNameCol = createCol();;
-  playerNameCol.innerHTML = "TestName";
+  const playerNameCol = createCol();
+  const playerSelect = createSelect();
+  playerNameCol.appendChild(playerSelect);
   playerNameRow.appendChild(playerNameCol);
 
   const statNamesRow = createRow();
@@ -150,4 +163,40 @@ function createRow() {
   const row = document.createElement("div");
   row.setAttribute("class", "row py-1 mb-2 text-center text-light");
   return row;
+}
+
+function createSelect() {
+  const select = document.createElement("select");
+
+  const option1 = document.createElement("option");
+  option1.value = "Player 1";
+  option1.text = "Player 1";
+  const option2 = document.createElement("option");
+  option2.value = "Player 2";
+  option2.text = "Player 2";
+  const option3 = document.createElement("option");
+  option3.value = "Player 3";
+  option3.text = "Player 3";
+  const option4 = document.createElement("option");
+  option4.value = "Player 4";
+  option4.text = "Player 4";
+  const option5 = document.createElement("option");
+  option5.value = "Player 5";
+  option5.text = "Player 5";
+  const option6 = document.createElement("option");
+  option6.value = "Player 6";
+  option6.text = "Player 6";
+  const option7 = document.createElement("option");
+  option7.value = "Player 7";
+  option7.text = "Player 7";
+
+  select.appendChild(option1);
+  select.appendChild(option2);
+  select.appendChild(option3);
+  select.appendChild(option4);
+  select.appendChild(option5);
+  select.appendChild(option6);
+  select.appendChild(option7);
+
+  return select;
 }
