@@ -55,49 +55,49 @@ function updateCharacter(data) {
 }
 
 function switchView(navId, viewId) {
-  const viewContainerList = document.getElementsByClassName("container");
+  const viewContainerList = $(".container");
   for(let i = 0; i < viewContainerList.length; i++){
       viewContainerList[i].style.display = "none";
   }
 
-  const navLinks = document.getElementsByClassName("nav-link");
+  const navLinks = $(".nav-link");
   for(let j = 0; j < navLinks.length; j++) {
     navLinks[j].classList.remove("active");
   }
 
-  const viewContainer = document.getElementById(viewId);
+  const viewContainer = $("#"+viewId)[0];
   viewContainer.style.display = "block";
-  const navElement = document.getElementById(navId);
+  const navElement = $("#"+navId)[0];
   navElement.classList.add("active");
 }
 
 function addTopPlayer() {
-  const topRow = document.getElementById("playerTopRow");
+  const topRow = $("#playerTopRow")[0];
   addPlayerHorizontal(topRow);
 }
 
 function delTopPlayer() {
-  const row = document.getElementById("playerTopRow");
+  const row = $("#playerTopRow")[0];
   delPlayer(row);
 }
 
 function addLeftPlayer() {
-  const leftCol = document.getElementById("playerLeftCol");
+  const leftCol = $("#playerLeftCol")[0];
   addPlayerVertical(leftCol);
 }
 
 function delLeftPlayer() {
-  const col = document.getElementById("playerLeftCol");
+  const col = $("#playerLeftCol")[0];
   delPlayer(col);
 }
 
 function addRightPlayer() {
-  const rightCol = document.getElementById("playerRightCol");
+  const rightCol = $("#playerRightCol")[0];
   addPlayerVertical(rightCol);
 }
 
 function delRightPlayer() {
-  const col = document.getElementById("playerRightCol");
+  const col = $("#playerRightCol")[0];
   delPlayer(col);
 }
 
