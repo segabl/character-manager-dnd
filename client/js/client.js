@@ -77,7 +77,8 @@ function addTopPlayer() {
 }
 
 function delTopPlayer() {
-
+  const row = document.getElementById("playerTopRow");
+  delPlayer(row);
 }
 
 function addLeftPlayer() {
@@ -86,7 +87,8 @@ function addLeftPlayer() {
 }
 
 function delLeftPlayer() {
-  
+  const col = document.getElementById("playerLeftCol");
+  delPlayer(col);
 }
 
 function addRightPlayer() {
@@ -95,7 +97,8 @@ function addRightPlayer() {
 }
 
 function delRightPlayer() {
-  
+  const col = document.getElementById("playerRightCol");
+  delPlayer(col);
 }
 
 function addPlayerHorizontal(row) {
@@ -151,6 +154,13 @@ function addPlayer(playerCol) {
   const initValue = createCol();
   initValue.innerHTML = "0";
   statsRow.appendChild(initValue);
+}
+
+function delPlayer(el) {
+  if(!el.hasChildNodes()) {
+    return;
+  }
+  el.removeChild(el.lastChild);
 }
 
 function createCol() {
