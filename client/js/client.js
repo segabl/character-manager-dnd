@@ -35,37 +35,40 @@ function handleMessage(msgId, msgData) {
 
 function updateCharacter(data) {
   characters[data.id] = data;
-  if (data.id !== myCharId) {
-    return;
+  if (data.id === myCharId) {
+    updateCharacterView(data);
   }
-  $("#name").html(data.name);
-  $("#class").html(data.class);
-  $("#level").html(data.level);
-  $("#hp").html(data.hp.join("/"));
-  $("#hit_dice").html(data.hit_dice.join("/"))
-  $("#exp").html(data.exp);
+}
+
+function updateCharacterView(data) {
+  $("#name > strong").html(data.name);
+  $("#class > strong").html(data.class);
+  $("#level > strong").html(data.level);
+  $("#hp > strong").html(data.hp.join("/"));
+  $("#hit_dice > strong").html(data.hit_dice.join("/"));
+  $("#exp > strong").html(data.exp);
   jQuery.each(data.stats, function(k, v) {
-    $("#stat_" + k).html(v);
+    $("#stat_" + k + " strong").html(v);
   });
   jQuery.each(data.skills, function(k, v) {
-    let element = $("#skill_" + k);
+    let element = $("#skill_" + k + " > strong");
     element.html(v.proficient ? v.value + data.stats.proficiency_bonus : v.value);
     if (v.proficient) {
       element.addClass("text-info");
     }
   });
   jQuery.each(data.modifiers, function(k, v) {
-    let element = $("#modifier_" + k);
+    let element = $("#modifier_" + k + " > strong");
     element.html(v.proficient ? v.value + " (" + (v.value + data.stats.proficiency_bonus) + ")" : v.value);
     if (v.proficient) {
       element.addClass("text-info");
     }
   });
-  $("#inventory_pp").html(data.money.platinum);
-  $("#inventory_gp").html(data.money.gold);
-  $("#inventory_ep").html(data.money.electrum);
-  $("#inventory_sp").html(data.money.silver);
-  $("#inventory_cp").html(data.money.copper);
+  $("#inventory_pp > strong").html(data.money.platinum);
+  $("#inventory_gp > strong").html(data.money.gold);
+  $("#inventory_ep > strong").html(data.money.electrum);
+  $("#inventory_sp > strong").html(data.money.silver);
+  $("#inventory_cp > strong").html(data.money.copper);
   jQuery.each(data.inventory, function(k, v) {
     $("#inventory").append("<div class=\"col-lg-2 col-sm-4 col-6\"><strong class=\"text-nowrap\">" + v.name + "</strong>&nbsp;<small>x" + v.count + "</small></div>");
   })
