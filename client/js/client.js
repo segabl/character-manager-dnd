@@ -81,7 +81,7 @@ function switchView(navId, viewId) {
     navLinks[j].classList.remove("active");
   }
 
-  const viewContainer = $("#"+viewId)[0];
+  const viewContainer = $("#"+viewId[0]);
   viewContainer.style.display = "block";
   const navElement = $("#"+navId)[0];
   navElement.classList.add("active");
@@ -235,3 +235,22 @@ function createSelect() {
 
   return select;
 }
+
+$(".skill").click(function(event) {
+
+  const skill = event.target.id.replace("skill_", "");
+  alert("skill: " + skill);
+  $(".modal-title").html(skill);
+  const editDialog = $("#editModal")[0];
+  editDialog.style.display = "block";
+});
+$(".ability").click(function(event) {
+
+  alert("ability");
+
+});
+$(".inventory").click(function(event) {
+
+  alert("inventory");
+
+});
