@@ -243,6 +243,18 @@
         </button>
       </div>
       <div class="modal-body">
+        <div id="attrValue">
+          <label>Value</label>
+          <input type="text" value="0">
+        </div>
+        <div id="proficiencyValue" style="display: none">
+          <label>Proficient</label>
+          <input type="checkbox" value="0">
+        </div>
+        <div id="accAttrValue">
+          <label>Accumulated</label>
+          <input type="text" value="0" readonly>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -262,9 +274,16 @@
     if(event.target.id == null || event.target.id.length <= 0) {
       id = event.target.parentNode.id;
     }
-    const skill = $("#" + id + " > small").html();
-    $(".modal-title").html(skill);
-    $(".modal-body").html(skill);
+    const skillName = $("#" + id + " > small").html();
+    $(".modal-title").html(skillName);
+
+    const skill = characters[myCharId].skills[id.replace("skill_", "")];
+    const proficiencyBonus = characters[myCharId].stats.proficiency_bonus;
+    $("#attrValue > input")[0].value = skill.value;
+    $("#proficiencyValue")[0].style.display = "block";
+    $("#proficiencyValue > input")[0].checked = skill.proficient;
+    const accVal = skill.value + (skill.proficient ? proficiencyBonus : 0);
+    $("#accAttrValue > input")[0].value = accVal;
     const editDialog = $("#editModal").modal('show');
   });
   $(".ability").click(function(event) {
