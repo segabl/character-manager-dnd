@@ -3,8 +3,8 @@
   "name": "New Character",
   "class": "Warrior",
   "level": 1,
-  "hp": 10,
-  "max_hp": 10,
+  "hp": [ 10, 10 ],
+  "hit_dice": [1, 1],
   "exp": 0,
   "money": {
     "platinum": 0,
@@ -18,8 +18,7 @@
     "speed": 10,
     "passive_perception": 10,
     "initiative": 2,
-    "proficiency_bonus": 2,
-    "hit_dice": 1
+    "proficiency_bonus": 2
   },
   "skills": {
     "acrobatics": {
