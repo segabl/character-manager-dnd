@@ -23,6 +23,17 @@ function originIsAllowed(origin) {
   return true;
 }
 
+function handleMessage(client, msgId, msgData) {
+  switch (msgId) {
+    case "requestCharacter":
+      client.sendUTF(JSON.stringify({
+        id: "character",
+        data: character_template // TODO: should be something like characters[msgData.id]
+      }));
+      break;
+  }
+}
+
 wsServer.on("request", function (request) {
   if (!originIsAllowed(request.origin)) {
     request.reject();
@@ -30,21 +41,18 @@ wsServer.on("request", function (request) {
     return;
   }
 
-  const connection = request.accept("echo-protocol", request.origin);
-  connection.sendUTF(JSON.stringify({
-    id: "character",
-    data: character_template
-  }));
-
   console.log("Connection from origin " + request.origin + " accepted.");
-  connection.on("message", function (message) {
+  const client = request.accept("echo-protocol", request.origin);
+  client.on("message", function (message) {
     if (message.type === "utf8") {
       console.log("Received Message: " + message.utf8Data);
+      const msg = JSON.parse(message.utf8Data);
+      handleMessage(client, msg.id, msg.data)
     } else if (message.type === "binary") {
       console.log("Received Binary Message of " + message.binaryData.length + " bytes");
     }
   });
-  connection.on("close", function (reasonCode, description) {
-    console.log("Peer " + connection.remoteAddress + " disconnected.");
+  client.on("close", function (reasonCode, description) {
+    console.log("Peer " + client.remoteAddress + " disconnected.");
   });
 });

@@ -6,6 +6,10 @@ function connectToServer() {
     const socket = new WebSocket("ws://127.0.0.1:8080", "echo-protocol");
     socket.onopen = function () {
       console.log("socket is open");
+      socket.send(JSON.stringify({
+        id: "requestCharacter",
+        data: { "id": myCharId }
+      }))
     };
     socket.onmessage = function (message) {
       console.log("Got message: " + message.data);
