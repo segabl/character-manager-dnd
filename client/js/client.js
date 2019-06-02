@@ -236,22 +236,3 @@ function createSelect() {
 
   return select;
 }
-
-$(".skill").click(function(event) {
-
-  const skill = event.target.id.replace("skill_", "");
-  alert("skill: " + skill);
-  $(".modal-title").html(skill);
-  const editDialog = $("#editModal")[0];
-  editDialog.style.display = "block";
-});
-$(".ability").click(function(event) {
-
-  alert("ability");
-
-});
-$(".inventory").click(function(event) {
-
-  alert("inventory");
-
-});
