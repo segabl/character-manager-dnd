@@ -5,19 +5,18 @@ function connectToServer() {
   if ("WebSocket" in window) {
     const socket = new WebSocket("ws://127.0.0.1:8080", "echo-protocol");
     socket.onopen = function () {
-      console.log("socket is open");
+      console.log("Connection established");
       socket.send(JSON.stringify({
         id: "requestCharacter",
         data: { "id": myCharId }
       }))
     };
     socket.onmessage = function (message) {
-      console.log("Got message: " + message.data);
       const msg = JSON.parse(message.data);
       handleMessage(msg.id, msg.data);
     };
     socket.onclose = function () {
-      console.log("Socket closed");
+      console.log("Connection closed");
     };
     return true;
   } else {
@@ -26,6 +25,7 @@ function connectToServer() {
 }
 
 function handleMessage(msgId, msgData) {
+  console.log("Got message with id \"" + msgId + "\"");
   switch (msgId) {
     case "character":
       updateCharacter(msgData);
@@ -41,7 +41,8 @@ function updateCharacter(data) {
   $("#name").html(data.name);
   $("#class").html(data.class);
   $("#level").html(data.level);
-  $("#hp").html(data.hp + "/" + data.max_hp);
+  $("#hp").html(data.hp.join("/"));
+  $("#hit_dice").html(data.hit_dice.join("/"))
   $("#exp").html(data.exp);
   jQuery.each(data.stats, function(k, v) {
     $("#stat_" + k).html(v);
@@ -50,14 +51,14 @@ function updateCharacter(data) {
     let element = $("#skill_" + k);
     element.html(v.proficient ? v.value + data.stats.proficiency_bonus : v.value);
     if (v.proficient) {
-      element.addClass("text-success");
+      element.addClass("text-info");
     }
   });
   jQuery.each(data.modifiers, function(k, v) {
     let element = $("#modifier_" + k);
     element.html(v.proficient ? v.value + " (" + (v.value + data.stats.proficiency_bonus) + ")" : v.value);
     if (v.proficient) {
-      element.addClass("text-success");
+      element.addClass("text-info");
     }
   });
   $("#inventory_pp").html(data.money.platinum);

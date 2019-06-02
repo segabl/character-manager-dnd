@@ -10,7 +10,7 @@ const server = http.createServer(function (request, response) {
   response.end();
 });
 server.listen(8080, function () {
-  console.log("Server is listening on port 8080");
+  console.log("Server listening on port 8080");
 });
 
 wsServer = new WebSocketServer({
@@ -24,6 +24,7 @@ function originIsAllowed(origin) {
 }
 
 function handleMessage(client, msgId, msgData) {
+  console.log("Got message with id \"" + msgId + "\"");
   switch (msgId) {
     case "requestCharacter":
       client.sendUTF(JSON.stringify({
@@ -37,22 +38,21 @@ function handleMessage(client, msgId, msgData) {
 wsServer.on("request", function (request) {
   if (!originIsAllowed(request.origin)) {
     request.reject();
-    console.log("Connection from origin " + request.origin + " rejected.");
+    console.log("Connection from origin " + request.origin + " rejected");
     return;
   }
 
-  console.log("Connection from origin " + request.origin + " accepted.");
+  console.log("Connection from origin " + request.origin + " accepted");
   const client = request.accept("echo-protocol", request.origin);
   client.on("message", function (message) {
     if (message.type === "utf8") {
-      console.log("Received Message: " + message.utf8Data);
       const msg = JSON.parse(message.utf8Data);
       handleMessage(client, msg.id, msg.data)
     } else if (message.type === "binary") {
-      console.log("Received Binary Message of " + message.binaryData.length + " bytes");
+      console.log("Got binary message of " + message.binaryData.length + " bytes");
     }
   });
   client.on("close", function (reasonCode, description) {
-    console.log("Peer " + client.remoteAddress + " disconnected.");
+    console.log("Peer " + client.remoteAddress + " disconnected");
   });
 });
