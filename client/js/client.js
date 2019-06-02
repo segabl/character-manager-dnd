@@ -137,35 +137,44 @@ function addPlayer(playerCol) {
   playerNameCol.appendChild(playerSelect);
   playerNameRow.appendChild(playerNameCol);
 
-  const statNamesRow = createRow();
-  playerCol.appendChild(statNamesRow);
+  //AC
+  const acRow = createRow();
+  playerCol.appendChild(acRow);
 
   const ac = createCol();
   ac.innerHTML = "AC";
-  statNamesRow.appendChild(ac);
-
-  const hp = createCol();
-  hp.innerHTML = "HP";
-  statNamesRow.appendChild(hp);
-
-  const init = createCol();
-  init.innerHTML = "INIT";
-  statNamesRow.appendChild(init);
-
-  const statsRow = createRow();
-  playerCol.appendChild(statsRow);
+  acRow.appendChild(ac);
 
   const acValue = createCol();
   acValue.innerHTML = "0";
-  statsRow.appendChild(acValue);
+  acRow.appendChild(acValue);
+
+  //HP
+  const hpRow = createRow();
+  playerCol.appendChild(hpRow);
+
+  const hp = createCol();
+  hp.innerHTML = "HP";
+  hpRow.appendChild(hp);
 
   const hpValue = createCol();
   hpValue.innerHTML = "0";
-  statsRow.appendChild(hpValue);
+  hpRow.appendChild(hpValue);
+
+  //INIT
+  const initRow = createRow();
+  playerCol.appendChild(initRow);
+
+  const init = createCol();
+  init.innerHTML = "INIT";
+  initRow.appendChild(init);
 
   const initValue = createCol();
-  initValue.innerHTML = "0";
-  statsRow.appendChild(initValue);
+  const initInput = document.createElement("input");
+  initInput.type = "text";
+  initInput.size = "1";
+  initValue.appendChild(initInput);
+  initRow.appendChild(initValue);
 }
 
 function delPlayer(el) {
