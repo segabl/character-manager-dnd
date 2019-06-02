@@ -85,7 +85,7 @@ function switchView(navId, viewId) {
     navLinks[j].classList.remove("active");
   }
 
-  const viewContainer = $("#"+viewId[0]);
+  const viewContainer = $("#"+viewId)[0];
   viewContainer.style.display = "block";
   const navElement = $("#"+navId)[0];
   navElement.classList.add("active");
